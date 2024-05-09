@@ -55,8 +55,8 @@ while True:
             
         # Intialize input arguments for ZimmermanTools
         if inputTypeChoice == "d":
-            d = input("Enter directory path: ")
-            arguments = arguments + "-d" + " " + '"' + d + '"'
+            dir = input("Enter directory path: ")
+            arguments = arguments + "-d" + " " + '"' + dir + '"'
         if inputTypeChoice == "f":
             f = input("Enter file path: ")
             arguments = arguments + "-f" + " " + '"' + f + '"'
@@ -80,7 +80,7 @@ while True:
                 inputEndTime = input('End time (yyyy-MM-dd HH:mm:ss): ')
                 
                 # Input validation
-                timeFormat= "%Y-%m-%d %H:%M:%S"
+                timeFormat = "%Y-%m-%d %H:%M:%S"
 
                 if bool(datetime.strptime(inputStartTime, timeFormat)) and bool(datetime.strptime(inputEndTime, timeFormat)):
                     # Intialize sd and ed input arguments for ZimmermanTools
