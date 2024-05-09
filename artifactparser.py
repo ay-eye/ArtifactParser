@@ -81,12 +81,12 @@ while True:
             sd = inputStartTime + ".0000000"
             ed = inputEndTime + ".0000000"
 
-            arguments = arguments + " " + "--sd" + " " + '"' + sd + '"' + " " + "--ed" + " " + '"' + ed + '"' 
+            arguments = arguments + " " + "--sd" + " " + sd + " " + "--ed" + " " + ed
         
         # Construct final command
         arguments = arguments + " " + "--csv" + + " " + '"' + desktop + '"' + " " + "--csvf" + " " + hostname
         print("[+] Running EvtxECmd.exe with your supplied options.")
-        subprocess.run([zimmermanExe, arguments], stdout=PIPE, stderr=STDOUT) 
+        subprocess.run([zimmermanExe, arguments], capture_output = True, text = True)) 
         print("\n * * * * * * * * * \n")
         print("[+] DONE. Please check the Desktop for the parsed CSV output file.\n")
 
