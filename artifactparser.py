@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import subprocess
 
@@ -74,19 +75,26 @@ while True:
 
         # If timerange is selected, have user define start and end times.
         if inputTime == "t":
-            inputStartTime = input('Start time (yyyy-MM-dd HH:mm:ss): ') 
-            inputEndTime = input('End time (yyyy-MM-dd HH:mm:ss): ')
-                    
-            # Intialize sd and ed input arguments for ZimmermanTools
-            sd = inputStartTime + ".0000000"
-            ed = inputEndTime + ".0000000"
+            while True:
+                inputStartTime = input('Start time (yyyy-MM-dd HH:mm:ss): ') 
+                inputEndTime = input('End time (yyyy-MM-dd HH:mm:ss): ')
+                
+                # Input validation
+                timeFormat= "%Y-%m-%d %H:%M:%S"
 
-            arguments = arguments + " " + "--sd" + " " + sd + " " + "--ed" + " " + ed
-        
+                if bool(datetime.strptime(timeFormat, timeFormat)) and bool(datetime.strptime(inputEndTime, timeFormat)):
+                    # Intialize sd and ed input arguments for ZimmermanTools
+                    sd = inputStartTime + ".0000000"
+                    ed = inputEndTime + ".0000000"
+                    arguments = arguments + " " + "--sd" + " " + sd + " " + "--ed" + " " + ed
+                    break
+                else:
+                    print("Please enter a valid option.\n")
+
         # Construct final command
         arguments = arguments + " " + "--csv" + + " " + '"' + desktop + '"' + " " + "--csvf" + " " + hostname
         print("[+] Running EvtxECmd.exe with your supplied options.")
-        subprocess.run([zimmermanExe, arguments], capture_output = True, text = True)) 
+        subprocess.run([zimmermanExe, arguments], capture_output = True, text = True)
         print("\n * * * * * * * * * \n")
         print("[+] DONE. Please check the Desktop for the parsed CSV output file.\n")
 
