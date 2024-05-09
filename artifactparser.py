@@ -6,7 +6,7 @@ arguments = " "
 zimmermanFolder = "./Zimmerman Tools/"
 
 while True:
-    # Initial Menu for user to pick
+    # Initial Menu for user to pick from.
     while True:
         inputArtifactChoiceList = ["1", "2", "3", "4", "5", "6", "7"]
         print("All parsed artifacts will be output to the Desktop as a CSV file.")
@@ -23,7 +23,7 @@ while True:
         if artifact in inputArtifactChoiceList:
                break
         else:
-            print("Please enter a valid option.")
+            print("Please enter a valid option.\n")
     
 
 
@@ -50,10 +50,9 @@ while True:
                break
            
             else:
-                print("Please enter a valid option.")
+                print("Please enter a valid option.\n")
             
-            # Intialize input arguments for ZimmermanTools
-
+        # Intialize input arguments for ZimmermanTools
         if inputTypeChoice == "d":
             d = input("Enter directory path: ")
             arguments = arguments + "-d" + " " + '"' + d + '"'
@@ -61,7 +60,6 @@ while True:
             f = input("Enter file path: ")
             arguments = arguments + "-f" + " " + '"' + f + '"'
 
-      
         # Determine if a specific timerange is desired.
         inputTimeChoiceList = ["t", "a"]
         while True:
@@ -72,7 +70,7 @@ while True:
                break
             
             else:
-                print("Please enter a valid option.")
+                print("Please enter a valid option.\n")
 
         # If timerange is selected, have user define start and end times.
         if inputTime == "t":
@@ -85,10 +83,10 @@ while True:
 
             arguments = arguments + " " + "--sd" + " " + '"' + sd + '"' + " " + "--ed" + " " + '"' + ed + '"' 
         
-        #Construct final command
+        # Construct final command
         arguments = arguments + " " + "--csv" + + " " + '"' + desktop + '"' + " " + "--csvf" + " " + hostname
         print("Running EvtxECmd.exe with your supplied options.")
-        print("Please check the Desktop for the parsed CSV output file.")
+        print("Please check the Desktop for the parsed CSV output file.\n")
         subprocess.run([zimmermanExe, arguments], stdout=PIPE, stderr=STDOUT) 
 
     # MFT LOGIC
