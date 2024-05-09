@@ -82,7 +82,7 @@ while True:
                 # Input validation
                 timeFormat= "%Y-%m-%d %H:%M:%S"
 
-                if bool(datetime.strptime(timeFormat, timeFormat)) and bool(datetime.strptime(inputEndTime, timeFormat)):
+                if bool(datetime.strptime(inputStartTime, timeFormat)) and bool(datetime.strptime(inputEndTime, timeFormat)):
                     # Intialize sd and ed input arguments for ZimmermanTools
                     sd = inputStartTime + ".0000000"
                     ed = inputEndTime + ".0000000"
