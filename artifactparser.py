@@ -85,9 +85,9 @@ while True:
         
         # Construct final command
         arguments = arguments + " " + "--csv" + + " " + '"' + desktop + '"' + " " + "--csvf" + " " + hostname
-        print("Running EvtxECmd.exe with your supplied options.")
-        print("Please check the Desktop for the parsed CSV output file.\n")
+        print("[+] Running EvtxECmd.exe with your supplied options.")
         subprocess.run([zimmermanExe, arguments], stdout=PIPE, stderr=STDOUT) 
+        print("[+] DONE. Please check the Desktop for the parsed CSV output file.\n")
 
     # MFT LOGIC
 
