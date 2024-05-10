@@ -76,6 +76,7 @@ def zimmermanMFTBodyFile(command):
 
 
 while True:
+    artifact = ''
     # Initial Menu for user to pick from.
     while True:
         inputArtifactChoiceList = ["1", "2", "3", "4", "5", "6", "7"]
@@ -269,7 +270,7 @@ while True:
         hostname = input("Enter hostname you are analyzing: ")
 
         #Initialize folder to save files to
-        saveDir = f'{desktop}\Srum_Parsed\'
+        saveDir = f'{desktop}\\Srum_Parsed\\'
 
         # Intialize input arguments for ZimmermanTools
         inputSrumPath = input("What is the path of the file you want parsed?: ")
