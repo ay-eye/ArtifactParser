@@ -239,7 +239,7 @@ while True:
         zimmermanMFTBodyFile(command1)
 
         # Open a bash shell and parse a MFT timeline
-        command2 = f'bash; sleep 10; mactime -z UTC -d -b mft_body {sd}..{ed} > {inputDriveChoice}_mft_timline.csv'
+        command2 = f'bash; sleep 10; mactime -z UTC -d -b mft_body {sd}..{ed} > {desktop}\\{inputDriveChoice}_mft_timline.csv'
         process_MFTTimeline = subprocess.Popen(command2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     
         print(f'[+] Parsing with your MFT Timeline with your supplied options: {command2}.')
