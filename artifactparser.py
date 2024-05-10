@@ -232,7 +232,7 @@ while True:
         inputMFTPath = input("What is the path of the file you want parsed?: ")
                     
         # Construct arguments for first command
-        arguments1 = f' -f "{inputMFTPath}" --body .\ --bodyf mft_body --bdl {inputDriveChoice}'
+        arguments1 = f' -f "{inputMFTPath}" --body {desktop} --bodyf mft_body --bdl {inputDriveChoice}'
         command1 = MFTECmdPath2 + arguments1
 
         # Execute Zimmerman Tool to parse a body file.
