@@ -227,9 +227,12 @@ while True:
         
         # Determine what drive will be parsed
         inputDriveChoice = input("What drive do you want parsed?: ")
+
+        # Intialize input arguments for ZimmermanTools
+        inputMFTPath = input("What is the path of the file you want parsed?: ")
                     
         # Construct arguments for first command
-        arguments1 = f' -f $MFT --body .\ --bodyf mft_body --bdl {inputDriveChoice}'
+        arguments1 = f' -f "{inputMFTPath}" --body .\ --bodyf mft_body --bdl {inputDriveChoice}'
         command1 = MFTECmdPath2 + arguments1
 
         # Execute Zimmerman Tool to parse a body file.
