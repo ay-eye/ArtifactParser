@@ -12,7 +12,7 @@ desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 # function to execute a supplied command as a subprocess of this script
 def zimmermanExecute(command):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    print(f"[+] Parsing with your supplied options: {command}.")
+    print(f'[+] Parsing with your supplied options: {command}.')
     
     while True:
         nextline = process.stdout.readline()
@@ -23,7 +23,7 @@ def zimmermanExecute(command):
         else:
             sys.stdout.write(nextline.decode('utf8'))
   
-    print(f"[+] DONE parsing with your supplied options: {command}.\n")
+    print(f'[+] DONE parsing with your supplied options: {command}.\n')
     print("Please check the Desktop for the parsed CSV output file.\n")
         
     #Poll process for new output until finished
@@ -44,7 +44,7 @@ def zimmermanExecute(command):
 
 def zimmermanMFTBodyFile(command):
     process = subprocess.Popen(command1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    print(f"[+] Creating a body with your supplied options: {command1}.")
+    print(f'[+] Creating a body with your supplied options: {command1}.')
     
     while True:
         nextline = process.stdout.readline()
@@ -55,7 +55,7 @@ def zimmermanMFTBodyFile(command):
         else:
             sys.stdout.write(nextline.decode('utf8'))
   
-    print(f"[+] DONE creating a body file with your supplied options: {command1}.\n")
+    print(f'[+] DONE creating a body file with your supplied options: {command1}.\n')
     print("Please check the current directory for the body file.\n")
         
     #Poll process for new output until finished
@@ -118,10 +118,10 @@ while True:
         # Intialize input arguments for ZimmermanTools
         if inputTypeChoice.lower() == "d":
             dir = input("Enter directory path: ")
-            arguments = arguments + f" -d '{dir}'"
+            arguments = arguments + f' -d "{dir}"'
         if inputTypeChoice.lower() == "f":
             f = input("Enter file path: ")
-            arguments = arguments + f" -f '{f}'"
+            arguments = arguments + f' -f "{f}"'
 
         # Determine if a specific timerange is desired.
         inputTimeChoiceList = ["t", "a"]
@@ -148,7 +148,7 @@ while True:
                         # Intialize sd and ed input arguments for ZimmermanTools
                         sd = inputStartTime
                         ed = inputEndTime
-                        arguments = arguments + f" --sd {sd} --ed {ed}"
+                        arguments = arguments + f' --sd {sd} --ed {ed}'
                         break
                 except ValueError:
                     print("Please enter a valid option.\n")
@@ -156,7 +156,7 @@ while True:
                     print("Please enter a valid option.\n")
                     
         # Construct final command
-        arguments = arguments + f" --csv {desktop} --csvf {csvf}"
+        arguments = arguments + f' --csv {desktop} --csvf {csvf}'
         command = EvtxECmdPath + arguments
 
         # Execute Zimmerman Tool
@@ -239,7 +239,7 @@ while True:
         command2 = f'bash; mactime -z UTC -d -b mft_body {sd}..{ed} > {inputDriveChoice}_mft_timline.csv'
         process_MFTTimeline = subprocess.Popen(command2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     
-        print(f"[+] Parsing with your MFT Timeline with your supplied options: {command2}.")
+        print(f'[+] Parsing with your MFT Timeline with your supplied options: {command2}.')
     
         while True:
             nextline = process_MFTTimeline.stdout.readline()
@@ -250,7 +250,7 @@ while True:
             else:
                 sys.stdout.write(nextline.decode('utf8'))
   
-        print(f"[+] DONE parsing with your MFT Timeline with your supplied options: {command2}.\n")
+        print(f'[+] DONE parsing with your MFT Timeline with your supplied options: {command2}.\n')
         print("Please check the Desktop for the parsed CSV output file.\n")
 
 
@@ -276,7 +276,7 @@ while True:
         inputSrumPath = input("What is the path of the file you want parsed?: ")
 
         # Construct final command
-        arguments = arguments + f" -d '{inputSrumPath}' --csv '{saveDir}' "
+        arguments = arguments + f' -d "{inputSrumPath}" --csv "{saveDir}"'
         command = SrumECmdPath + arguments
 
         # Execute Zimmerman Tool
@@ -313,13 +313,13 @@ while True:
         # Intialize input arguments for ZimmermanTools
         if inputTypeChoice.lower() == "d":
             dir = input("Enter directory path: ")
-            arguments = arguments + f" -d '{dir}'"
+            arguments = arguments + f' -d "{dir}"'
         if inputTypeChoice.lower() == "f":
             f = input("Enter file path: ")
-            arguments = arguments + f" -f '{f}'"
+            arguments = arguments + f' -f "{f}"'
                     
         # Construct final command
-        arguments = arguments + f" --csv {desktop} --csvf {csvf}"
+        arguments = arguments + f' --csv {desktop} --csvf {csvf}'
         command = PECmdPath + arguments
 
         # Execute Zimmerman Tool
@@ -343,10 +343,10 @@ while True:
        
         # Intialize input arguments for ZimmermanTools
         inputFilePath = input("Please enter path of file you want parsed: ")
-        arguments = arguments + f"-f '{f}'"
+        arguments = arguments + f'-f "{f}"'
                     
         # Construct final command
-        arguments = arguments + f" --csv {desktop} --csvf {csvf} --nl"
+        arguments = arguments + f' --csv {desktop} --csvf {csvf} --nl'
         command = AmcacheParserPath + arguments
 
         # Execute Zimmerman Tool
