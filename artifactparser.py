@@ -342,8 +342,8 @@ while True:
         csvf = "amcache_parsed_" + hostname + ".csv"
        
         # Intialize input arguments for ZimmermanTools
-        inputFilePath = input("Please enter path of file you want parsed: ")
-        arguments = arguments + f'-f "{f}"'
+        inputFilePath = input("Please enter path of Amcache.hve you want parsed: ")
+        arguments = arguments + f'-f "{inputFilePath}"'
                     
         # Construct final command
         arguments = arguments + f' --csv {desktop} --csvf {csvf} --nl'
