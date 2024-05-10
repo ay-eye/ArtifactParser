@@ -242,10 +242,10 @@ while True:
         print(f"[+] Parsing with your MFT Timeline with your supplied options: {command2}.")
     
         while True:
-            nextline = process.stdout.readline()
-            result = process.poll()
+            nextline = process_MFTTimeline.stdout.readline()
+            result = process_MFTTimeline.poll()
             if result is not None: 
-                process.terminate()
+                process_MFTTimeline.terminate()
                 break
             else:
                 sys.stdout.write(nextline.decode('utf8'))
